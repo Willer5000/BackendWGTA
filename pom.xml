@@ -88,8 +88,12 @@
             <version>2.7.6</version>
             <type>pom</type>
         </dependency>
-        
-        
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-messaging</artifactId>
+            <version>5.7.5</version>
+            <type>pom.sha512</type>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
