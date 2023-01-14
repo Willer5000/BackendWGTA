@@ -24,7 +24,7 @@ public class Controller {
     @Autowired
     private IPersonaService persoServ;
     
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('admin')")
     @PostMapping("/persona/new/persona")
     //public void agregarPersona(@RequestBody Persona pers){
     public String agregarPersona(@RequestBody Persona pers){
@@ -39,7 +39,7 @@ public class Controller {
         return persoServ.verPersonas();
     }
     
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('admin')")
     @DeleteMapping("/persona/delete/{id}")
     //public void borrarPersona(@PathVariable Long id){
     public String borrarPersona(@PathVariable Long id){
@@ -47,7 +47,7 @@ public class Controller {
         return "La persona fue eliminada correctamente";
     }
     //URL/puerto
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('admin')")
     @PutMapping("/persona/edit/{id}")
     public Persona editarPersona(@PathVariable Long id,
                                  @RequestParam("nombre") String nuevoNombre,
