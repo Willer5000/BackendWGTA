@@ -25,14 +25,14 @@ public class Controller {
     private IPersonaService persoServ;
     
     @PreAuthorize("hasRole('ADMIN')")
-    @PostMapping("persona/new/persona")
+    @PostMapping("/persona/new/persona")
     //public void agregarPersona(@RequestBody Persona pers){
     public String agregarPersona(@RequestBody Persona pers){
         persoServ.crearPersona(pers);
         //listaPersonas.add(pers);
         return "La persona fue creada correctamente";
     }
-    @GetMapping("persona/ver/personas")
+    @GetMapping("/persona/ver/personas")
     @ResponseBody
     public List<Persona> verPersonas(){
         //return listaPersonas;
@@ -40,7 +40,7 @@ public class Controller {
     }
     
     @PreAuthorize("hasRole('ADMIN')")
-    @DeleteMapping("persona/delete/{id}")
+    @DeleteMapping("/persona/delete/{id}")
     //public void borrarPersona(@PathVariable Long id){
     public String borrarPersona(@PathVariable Long id){
         persoServ.borrarPersona(id);
@@ -48,7 +48,7 @@ public class Controller {
     }
     //URL/puerto
     @PreAuthorize("hasRole('ADMIN')")
-    @PutMapping("persona/edit/{id}")
+    @PutMapping("/persona/edit/{id}")
     public Persona editarPersona(@PathVariable Long id,
                                  @RequestParam("nombre") String nuevoNombre,
                                  @RequestParam("apellido") String nuevoApellido,
@@ -74,7 +74,7 @@ public class Controller {
         persoServ.crearPersona(pers);
         return pers;
     }
-    @GetMapping("persona/traer/perfil")
+    @GetMapping("/persona/traer/perfil")
     public Persona buscarPersona(){
         return persoServ.buscarPersona((long)1);
     }
