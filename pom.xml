@@ -94,6 +94,11 @@
             <version>5.7.5</version>
             <type>pom.sha512</type>
         </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>5.3.24</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
