@@ -1,6 +1,8 @@
+com\prtf\wgta\model\Experiencia.class
 com\prtf\wgta\security\Dto\LoginUsuario.class
 com\prtf\wgta\security\service\RolService.class
 com\prtf\wgta\WgtaApplication.class
+com\prtf\wgta\service\SExperiencia.class
 com\prtf\wgta\security\Dto\JwtDto.class
 com\prtf\wgta\security\repository\iRolRepository.class
 com\prtf\wgta\controller\Controller.class
@@ -8,6 +10,7 @@ com\prtf\wgta\security\entity\Rol.class
 com\prtf\wgta\security\Dto\NuevoUsuario.class
 com\prtf\wgta\security\jwt\JwtTokenFilter.class
 com\prtf\wgta\model\Persona.class
+com\prtf\wgta\Dto\dtoExperiencia.class
 com\prtf\wgta\security\jwt\JwtProvider.class
 com\prtf\wgta\security\service\UsuarioService.class
 com\prtf\wgta\service\IPersonaService.class
@@ -15,9 +18,11 @@ com\prtf\wgta\security\enums\RolNombre.class
 com\prtf\wgta\security\controller\Mensaje.class
 com\prtf\wgta\security\service\UserDetailsImpl.class
 com\prtf\wgta\security\MainSecurity.class
+com\prtf\wgta\controller\ExperienciaController.class
 com\prtf\wgta\security\entity\Usuario.class
 com\prtf\wgta\security\entity\UsuarioPrincipal.class
 com\prtf\wgta\service\PersonaService.class
+com\prtf\wgta\repository\RExperiencia.class
 com\prtf\wgta\repository\PersonaRepository.class
 com\prtf\wgta\security\controller\AuthController.class
 com\prtf\wgta\security\repository\iUsuarioRepository.class
