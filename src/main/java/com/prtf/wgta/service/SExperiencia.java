@@ -40,4 +40,11 @@ public class SExperiencia {
     public boolean existsByEmpresaEx(String empresaEx){
     return rExperiencia.existsByEmpresaEx(empresaEx);
     }
+    public Experiencia createExperiencia(Experiencia experiencia) {
+        return rExperiencia.save(experiencia);
+    }
+
+    public Experiencia updateExperiencia(Experiencia experiencia) {
+        return rExperiencia.save(experiencia);
+    }
 }
