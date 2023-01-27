@@ -2,6 +2,55 @@ package com.prtf.wgta.controller;
 
 import com.prtf.wgta.Dto.dtoExperiencia;
 import com.prtf.wgta.model.Experiencia;
+import com.prtf.wgta.service.SExperiencia;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.validation.Valid;
+
+@Controller
+@RequestMapping("/experiencias")
+public class ExperienciaController {
+
+    @Autowired
+    private SExperiencia sExperiencia;
+
+    @GetMapping("/agregar")
+    public String agregarExperiencia(Model model) {
+        model.addAttribute("experiencia", new dtoExperiencia());
+        return "agregar-experiencia";
+    }
+
+    @PostMapping("/agregar")
+    public String guardarExperiencia(@Valid @ModelAttribute("experiencia") dtoExperiencia dtoExperiencia, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "agregar-experiencia";
+        }
+        Experiencia experiencia = new Experiencia();
+        experiencia.setLogoEx(dtoExperiencia.getLogoEx());
+        experiencia.setUrlEx(dtoExperiencia.getUrlEx());
+        experiencia.setEmpresaEx(dtoExperiencia.getEmpresaEx());
+        experiencia.setDescripcionEx(dtoExperiencia.getDescripcionEx());
+        experiencia.setLugarEx(dtoExperiencia.getLugarEx());
+        experiencia.setCargoEx(dtoExperiencia.getCargoEx());
+        experiencia.setDesdeEx(dtoExperiencia.getDesdeEx());
+        experiencia.setHastaEx(dtoExperiencia.getHastaEx());
+
+        sExperiencia.save(experiencia);
+        return "redirect:/experiencias";
+    }
+}
+
+/*package com.prtf.wgta.controller;
+
+import com.prtf.wgta.Dto.dtoExperiencia;
+import com.prtf.wgta.model.Experiencia;
 import com.prtf.wgta.security.controller.Mensaje;
 import com.prtf.wgta.service.SExperiencia;
 import java.util.List;
@@ -82,4 +131,4 @@ public class ExperienciaController {
     
     return new ResponseEntity(new Mensaje("Experiencia eliminada"), HttpStatus.OK);
     }
-}
+}*/
