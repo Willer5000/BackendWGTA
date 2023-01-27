@@ -8,6 +8,8 @@ public class dtoExperiencia {
     @NotBlank
     private String logoEx;
     @NotBlank
+    private String urlEx;
+    @NotBlank
     private String empresaEx;
     @NotBlank
     private String descripcionEx;
@@ -25,9 +27,10 @@ public class dtoExperiencia {
     public dtoExperiencia() {
     }
 
-    public dtoExperiencia(String logoEx, String empresaEx, String descripcionEx, String lugarEx, String cargoEx, String desdeEx, String hastaEx) {
+    public dtoExperiencia(String logoEx, String urlEx, String empresaEx, String descripcionEx, String lugarEx, String cargoEx, String desdeEx, String hastaEx) {
         this.logoEx = logoEx;
         this.empresaEx = empresaEx;
+        this.urlEx = urlEx;
         this.descripcionEx = descripcionEx;
         this.lugarEx = lugarEx;
         this.cargoEx = cargoEx;
@@ -42,6 +45,14 @@ public class dtoExperiencia {
 
     public void setLogoEx(String logoEx) {
         this.logoEx = logoEx;
+    }
+
+    public String getUrlEx() {
+        return urlEx;
+    }
+
+    public void setUrlEx(String urlEx) {
+        this.urlEx = urlEx;
     }
 
     public String getEmpresaEx() {
@@ -91,5 +102,6 @@ public class dtoExperiencia {
     public void setHastaEx(String hastaEx) {
         this.hastaEx = hastaEx;
     }
+
     
 }

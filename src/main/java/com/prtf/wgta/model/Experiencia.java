@@ -12,6 +12,7 @@ public class Experiencia {
     @GeneratedValue(strategy = GenerationType.IDENTITY )
     private int id;
     private String logoEx;
+    private String urlEx;
     private String empresaEx;
     private String descripcionEx;
     private String lugarEx;
@@ -23,8 +24,9 @@ public class Experiencia {
     public Experiencia() {
     }
 
-    public Experiencia(String logoEx, String empresaEx, String descripcionEx, String lugarEx, String cargoEx, String desdeEx, String hastaEx) {
+    public Experiencia(String logoEx, String urlEx, String empresaEx, String descripcionEx, String lugarEx, String cargoEx, String desdeEx, String hastaEx) {
         this.logoEx = logoEx;
+        this.urlEx = urlEx;
         this.empresaEx = empresaEx;
         this.descripcionEx = descripcionEx;
         this.lugarEx = lugarEx;
@@ -48,6 +50,14 @@ public class Experiencia {
 
     public void setLogoEx(String logoEx) {
         this.logoEx = logoEx;
+    }
+
+    public String getUrlEx() {
+        return urlEx;
+    }
+
+    public void setUrlEx(String urlEx) {
+        this.urlEx = urlEx;
     }
 
     public String getEmpresaEx() {
@@ -97,7 +107,6 @@ public class Experiencia {
     public void setHastaEx(String hastaEx) {
         this.hastaEx = hastaEx;
     }
-    
 
 }
 
