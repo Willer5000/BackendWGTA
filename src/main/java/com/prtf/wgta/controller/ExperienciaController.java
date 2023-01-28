@@ -1,4 +1,4 @@
-package com.prtf.wgta.controller;
+/*package com.prtf.wgta.controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -76,7 +76,7 @@ public ResponseEntity<Experiencia> deleteExperiencia(@PathVariable int id) {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 }
-}
+}*/
 
 
 
@@ -84,7 +84,7 @@ public ResponseEntity<Experiencia> deleteExperiencia(@PathVariable int id) {
 
 
 
-    /*package com.prtf.wgta.controller;
+package com.prtf.wgta.controller;
 
 import com.prtf.wgta.Dto.dtoExperiencia;
 import com.prtf.wgta.model.Experiencia;
@@ -168,4 +168,4 @@ public class ExperienciaController {
     
     return new ResponseEntity(new Mensaje("Experiencia eliminada"), HttpStatus.OK);
     }
-}*/
+}

@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.prtf.wgta.WgtaApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 17.722 s - in com.prtf.wgta.WgtaApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 15.191 s - in com.prtf.wgta.WgtaApplicationTests
