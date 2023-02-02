@@ -177,8 +177,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("explab")
-//@CrossOrigin(origins = "https://fedwgta.web.app")
-@CrossOrigin(origins = "", allowedHeaders = "")
+@CrossOrigin(origins = "https://fedwgta.web.app")
+//@CrossOrigin(origins = "", allowedHeaders = "")
 public class ExperienciaController {
 
     @Autowired
