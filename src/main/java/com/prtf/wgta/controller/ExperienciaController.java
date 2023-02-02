@@ -1,13 +1,11 @@
 //OPCION C
-/*
-package com.prtf.wgta.controller;
+/*package com.prtf.wgta.controller;
 
 import com.prtf.wgta.Dto.dtoExperiencia;
 import com.prtf.wgta.model.Experiencia;
 import com.prtf.wgta.security.controller.Mensaje;
 import com.prtf.wgta.service.SExperiencia;
 import java.util.List;
-import javax.persistence.EntityNotFoundException;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("explab")
 @CrossOrigin(origins = "https://fedwgta.web.app")
+//@CrossOrigin(origins = "", allowedHeaders = "")
 public class ExperienciaController {
 
     @Autowired
@@ -48,14 +47,21 @@ public class ExperienciaController {
         sExperiencia.save(experiencia);
 
         return new ResponseEntity(new Mensaje("Experiencia Agregada"), HttpStatus.OK);
-    }
-    //@PreAuthorize("hasRole('ADMIN')")
 
+    }
+
+    //@PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/update/{id}")
-    public ResponseEntity<?> update(@RequestBody dtoExperiencia dtoexp, @PathVariable long id) {
-        Experiencia experiencia = sExperiencia.findById(id).orElseThrow(() -> new EntityNotFoundException("Experiencia no encontrada"));
+    public ResponseEntity<?> update(@RequestBody dtoExperiencia dtoexp, @PathVariable Long id) {
+        Experiencia experiencia = sExperiencia.findById(id);
+        if (experiencia == null) {
+            return new ResponseEntity(new Mensaje("No se encontró la experiencia"), HttpStatus.NOT_FOUND);
+        }
         if (StringUtils.isBlank(dtoexp.getEmpresaEx())) {
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
+        }
+        if (sExperiencia.existsByEmpresaExAndIdNot(dtoexp.getEmpresaEx(), id)) {
+            return new ResponseEntity(new Mensaje("Esa experiencia ya existe"), HttpStatus.BAD_REQUEST);
         }
         experiencia.setEmpresaEx(dtoexp.getEmpresaEx());
         experiencia.setDescripcionEx(dtoexp.getDescripcionEx());
@@ -65,12 +71,9 @@ public class ExperienciaController {
         experiencia.setCargoEx(dtoexp.getCargoEx());
         experiencia.setDesdeEx(dtoexp.getDesdeEx());
         experiencia.setHastaEx(dtoexp.getHastaEx());
-        Experiencia updatedExperiencia = sExperiencia.save(experiencia);
-        if (updatedExperiencia != null) {
-            return new ResponseEntity(new Mensaje("Experiencia actualizada"), HttpStatus.OK);
-        } else {
-            return new ResponseEntity(new Mensaje("No se pudo actualizar la experiencia"), HttpStatus.BAD_REQUEST);
-        }
+        sExperiencia.save(experiencia);
+
+        return new ResponseEntity(new Mensaje("Experiencia actualizada"), HttpStatus.OK);
     }
 }
 */
@@ -177,7 +180,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("explab")
-@CrossOrigin(origins = "https://fedwgta.web.app")
+@CrossOrigin(origins = "https://fedwgta.web.app", allowedHeaders = "*")
 //@CrossOrigin(origins = "", allowedHeaders = "")
 public class ExperienciaController {
 
