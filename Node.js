@@ -1,12 +1,13 @@
+const express = require('express');
+const app = express();
 const cors = require('cors');
 
-const corsOptions = {
-  origin: '*',
-  methods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
-};
+app.use(cors());
 
-module.exports = cors(corsOptions);
-const corsMiddleware = require('./cors');
+// su código para configurar las rutas y los endpoints aquí
 
-app.use(corsMiddleware);
+const puerto = 3000;
+
+app.listen(puerto, () => {
+  console.log(`Servidor corriendo en el puerto ${puerto}`);
+});
