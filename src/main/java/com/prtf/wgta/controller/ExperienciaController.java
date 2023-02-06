@@ -196,13 +196,13 @@ public class ExperienciaController {
     //@PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody dtoExperiencia dtoexp) {
-        if (StringUtils.isBlank(dtoexp.getEmpresaEx())) {
+        if (StringUtils.isBlank(dtoexp.getEmpresaex())) {
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
         }
-        if (sExperiencia.existsByEmpresaEx(dtoexp.getEmpresaEx())) {
+        if (sExperiencia.existsByEmpresaex(dtoexp.getEmpresaex())) {
             return new ResponseEntity(new Mensaje("Esa experiencia existe"), HttpStatus.BAD_REQUEST);
         }
-        Experiencia experiencia = new Experiencia(dtoexp.getEmpresaEx(), dtoexp.getDescripcionEx(), dtoexp.getLugarEx(), dtoexp.getLogoEx(), dtoexp.getUrlEx(), dtoexp.getCargoEx(), dtoexp.getDesdeEx(), dtoexp.getHastaEx());
+        Experiencia experiencia = new Experiencia(dtoexp.getEmpresaex(), dtoexp.getDescripcionex(), dtoexp.getLugarex(), dtoexp.getLogoex(), dtoexp.getUrlex(), dtoexp.getCargoex(), dtoexp.getDesdeex(), dtoexp.getHastaex());
         sExperiencia.save(experiencia);
 
         return new ResponseEntity(new Mensaje("Experiencia Agregada"), HttpStatus.OK);
@@ -225,19 +225,19 @@ public class ExperienciaController {
         }
 
         //El campo no puede estar vacio
-        if (StringUtils.isBlank(dtoexp.getEmpresaEx())) {
+        if (StringUtils.isBlank(dtoexp.getEmpresaex())) {
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
         }
 
         Experiencia experiencia = sExperiencia.getOne(id).get();
-        experiencia.setLogoEx(dtoexp.getLogoEx());
-        experiencia.setUrlEx(dtoexp.getUrlEx());
-        experiencia.setEmpresaEx(dtoexp.getEmpresaEx());
-        experiencia.setDescripcionEx(dtoexp.getDescripcionEx());
-        experiencia.setLugarEx(dtoexp.getLugarEx());
-        experiencia.setCargoEx(dtoexp.getCargoEx());
-        experiencia.setDesdeEx(dtoexp.getDesdeEx());
-        experiencia.setHastaEx(dtoexp.getHastaEx());
+        experiencia.setLogoex(dtoexp.getLogoex());
+        experiencia.setUrlex(dtoexp.getUrlex());
+        experiencia.setEmpresaex(dtoexp.getEmpresaex());
+        experiencia.setDescripcionex(dtoexp.getDescripcionex());
+        experiencia.setLugarex(dtoexp.getLugarex());
+        experiencia.setCargoex(dtoexp.getCargoex());
+        experiencia.setDesdeex(dtoexp.getDesdeex());
+        experiencia.setHastaex(dtoexp.getHastaex());
 
         sExperiencia.save(experiencia);
         return new ResponseEntity(new Mensaje("Experiencia actualizada"), HttpStatus.OK);

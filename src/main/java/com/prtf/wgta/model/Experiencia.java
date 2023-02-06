@@ -11,28 +11,28 @@ public class Experiencia {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY )
     private int id;
-    private String logoEx;
-    private String urlEx;
-    private String empresaEx;
-    private String descripcionEx;
-    private String lugarEx;
-    private String cargoEx;
-    private String desdeEx;
-    private String hastaEx;
+    private String logoex;
+    private String urlex;
+    private String empresaex;
+    private String descripcionex;
+    private String lugarex;
+    private String cargoex;
+    private String desdeex;
+    private String hastaex;
 //Constructores
 
     public Experiencia() {
     }
 
-    public Experiencia(String logoEx, String urlEx, String empresaEx, String descripcionEx, String lugarEx, String cargoEx, String desdeEx, String hastaEx) {
-        this.logoEx = logoEx;
-        this.urlEx = urlEx;
-        this.empresaEx = empresaEx;
-        this.descripcionEx = descripcionEx;
-        this.lugarEx = lugarEx;
-        this.cargoEx = cargoEx;
-        this.desdeEx = desdeEx;
-        this.hastaEx = hastaEx;
+    public Experiencia(String logoex, String urlex, String empresaex, String descripcionex, String lugarex, String cargoex, String desdeex, String hastaex) {
+        this.logoex = logoex;
+        this.urlex = urlex;
+        this.empresaex = empresaex;
+        this.descripcionex = descripcionex;
+        this.lugarex = lugarex;
+        this.cargoex = cargoex;
+        this.desdeex = desdeex;
+        this.hastaex = hastaex;
     }
 // Getters and Setters
 
@@ -44,70 +44,72 @@ public class Experiencia {
         this.id = id;
     }
 
-    public String getLogoEx() {
-        return logoEx;
+    public String getLogoex() {
+        return logoex;
     }
 
-    public void setLogoEx(String logoEx) {
-        this.logoEx = logoEx;
+    public void setLogoex(String logoex) {
+        this.logoex = logoex;
     }
 
-    public String getUrlEx() {
-        return urlEx;
+    public String getUrlex() {
+        return urlex;
     }
 
-    public void setUrlEx(String urlEx) {
-        this.urlEx = urlEx;
+    public void setUrlex(String urlex) {
+        this.urlex = urlex;
     }
 
-    public String getEmpresaEx() {
-        return empresaEx;
+    public String getEmpresaex() {
+        return empresaex;
     }
 
-    public void setEmpresaEx(String empresaEx) {
-        this.empresaEx = empresaEx;
+    public void setEmpresaex(String empresaex) {
+        this.empresaex = empresaex;
     }
 
-    public String getDescripcionEx() {
-        return descripcionEx;
+    public String getDescripcionex() {
+        return descripcionex;
     }
 
-    public void setDescripcionEx(String descripcionEx) {
-        this.descripcionEx = descripcionEx;
+    public void setDescripcionex(String descripcionex) {
+        this.descripcionex = descripcionex;
     }
 
-    public String getLugarEx() {
-        return lugarEx;
+    public String getLugarex() {
+        return lugarex;
     }
 
-    public void setLugarEx(String lugarEx) {
-        this.lugarEx = lugarEx;
+    public void setLugarex(String lugarex) {
+        this.lugarex = lugarex;
     }
 
-    public String getCargoEx() {
-        return cargoEx;
+    public String getCargoex() {
+        return cargoex;
     }
 
-    public void setCargoEx(String cargoEx) {
-        this.cargoEx = cargoEx;
+    public void setCargoex(String cargoex) {
+        this.cargoex = cargoex;
     }
 
-    public String getDesdeEx() {
-        return desdeEx;
+    public String getDesdeex() {
+        return desdeex;
     }
 
-    public void setDesdeEx(String desdeEx) {
-        this.desdeEx = desdeEx;
+    public void setDesdeex(String desdeex) {
+        this.desdeex = desdeex;
     }
 
-    public String getHastaEx() {
-        return hastaEx;
+    public String getHastaex() {
+        return hastaex;
     }
 
-    public void setHastaEx(String hastaEx) {
-        this.hastaEx = hastaEx;
+    public void setHastaex(String hastaex) {
+        this.hastaex = hastaex;
     }
 
+    
+ 
 }
 
 

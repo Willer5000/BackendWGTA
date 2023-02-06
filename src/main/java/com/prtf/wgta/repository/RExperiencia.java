@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface RExperiencia extends JpaRepository<Experiencia, Integer>{
-    public Optional<Experiencia> findByEmpresaEx(String empresaEx);
-    public boolean existsByEmpresaEx(String empresaEx);
+    public Optional<Experiencia> findByEmpresaex(String empresaex);
+    public boolean existsByEmpresaex(String empresaex);
 }
