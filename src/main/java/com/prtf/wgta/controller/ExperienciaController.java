@@ -76,7 +76,7 @@ public class ExperienciaController {
         return new ResponseEntity(new Mensaje("Experiencia actualizada"), HttpStatus.OK);
     }
 }
-*/
+ */
 //OPCION B
 /*package com.prtf.wgta.controller;
 
@@ -213,6 +213,33 @@ public class ExperienciaController {
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoExperiencia dtoexp) {
         //Validamos is existe id
+        if (!sExperiencia.existsById(id)) {
+            return new ResponseEntity(new Mensaje("El ID no existe"), HttpStatus.BAD_REQUEST);
+        }
+
+        //Comparamos el nombre de la experiencia
+        //if (sExperiencia.existsByEmpresaEx(dtoexp.getEmpresaEx()) && sExperiencia.getByEmpresaEx(dtoexp.getEmpresaEx()).get().getId() != id)
+        //return new ResponseEntity(new Mensaje("Esa experiencia ya existe"), HttpStatus.BAD_REQUEST);
+        //El campo no puede estar vacio
+        if (StringUtils.isBlank(dtoexp.getEmpresaex())) {
+            return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
+        }
+
+        // Validar fecha
+        if (dtoexp.getDesdeex() == null || dtoexp.getHastaex() == null) {
+            return new ResponseEntity(new Mensaje("La fecha de inicio y fecha final son obligatorias"), HttpStatus.BAD_REQUEST);
+        }
+
+        Experiencia experiencia = new Experiencia(dtoexp.getEmpresaex(), dtoexp.getDescripcionex(), dtoexp.getLugarex(), dtoexp.getLogoex(), dtoexp.getUrlex(), dtoexp.getCargoex(), dtoexp.getDesdeex(), dtoexp.getHastaex());
+        experiencia.setId(id);
+        sExperiencia.save(experiencia);
+
+        return new ResponseEntity(new Mensaje("Experiencia actualizada"), HttpStatus.OK);
+    }
+
+    /* @PutMapping("/update/{id}")
+    public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoExperiencia dtoexp) {
+        //Validamos is existe id
         if (sExperiencia.existsById(id)) {
             return new ResponseEntity(new Mensaje("El ID no existe"), HttpStatus.BAD_REQUEST);
         }
@@ -242,8 +269,7 @@ public class ExperienciaController {
         sExperiencia.save(experiencia);
         return new ResponseEntity(new Mensaje("Experiencia actualizada"), HttpStatus.OK);
 
-    }
-
+    }*/
     //@PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> delete(@PathVariable("id") int id) {
         if (!sExperiencia.existsById(id)) {
@@ -254,4 +280,3 @@ public class ExperienciaController {
         return new ResponseEntity(new Mensaje("Experiencia eliminada"), HttpStatus.OK);
     }
 }
-
