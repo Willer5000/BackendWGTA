@@ -10,7 +10,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -35,7 +34,7 @@ public class ExperienciaController {
         return new ResponseEntity(list, HttpStatus.OK);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody dtoExperiencia dtoexp) {
         if (StringUtils.isBlank(dtoexp.getEmpresaex())) {
@@ -51,7 +50,7 @@ public class ExperienciaController {
 
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoExperiencia dtoexp) {
         //Validamos is existe id
@@ -112,7 +111,7 @@ public class ExperienciaController {
         return new ResponseEntity(new Mensaje("Experiencia actualizada"), HttpStatus.OK);
 
     }*/
-   @PreAuthorize("hasRole('ADMIN')")
+   //@PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> delete(@PathVariable("id") int id) {
         if (!sExperiencia.existsById(id)) {
             return new ResponseEntity(new Mensaje("El ID no existe"), HttpStatus.BAD_REQUEST);
